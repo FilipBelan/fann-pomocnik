@@ -1,0 +1,123 @@
+{
+  "id": "internet-offline",
+  "name": "Internet / Kasa offline",
+  "desc": "Keď kasa hlási offline alebo nejde internet",
+  "category": "inet",
+  "priority": "high",
+  "emoji": "📡",
+  "active": true,
+  "updated": "2026-04-22T00:00:00.000Z",
+  "steps": [
+    {
+      "id": "s1",
+      "type": "yesno",
+      "question": "Máte na predajni viac ako jeden počítač?",
+      "instruction": "Napríklad: hlavná kasa a zároveň počítač v kancelárii alebo zázemí.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Ak máte iba jednu kasu a žiadny iný počítač na predajni, odpoveďte Nie."
+      },
+      "yes_to": "s2",
+      "no_to": "s3"
+    },
+    {
+      "id": "s2",
+      "type": "yesno",
+      "question": "Funguje internet na počítači v zázemí alebo kancelárii?",
+      "instruction": "1. Choďte k počítaču v zázemí alebo kancelárii.\n2. Otvorte internetový prehliadač (Chrome alebo Edge).\n3. Skúste otvoriť stránku www.fann.sk.\n4. Načítala sa stránka normálne?",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Ak sa stránka vôbec neotvorí alebo zobrazí chybu — internet v zázemí nefunguje. Odpovedzte Nie."
+      },
+      "yes_to": "s2b",
+      "no_to": "s3"
+    },
+    {
+      "id": "s2b",
+      "type": "next",
+      "question": null,
+      "instruction": "Internet v zázemí funguje, ale na kase nie. Problém je pravdepodobne v kábli alebo sieťovom prepínači (switchi) priamo pri pokladni — nie v hlavnom routeri.\n\nReštart Cisco skrinky by v tomto prípade nepomohol. Zavolajte priamo technickú podporu.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Nič nerešartujte! Zbytočný reštart by mohol situáciu skomplikovať."
+      },
+      "next_to": "fail"
+    },
+    {
+      "id": "s3",
+      "type": "next",
+      "question": null,
+      "instruction": "Nájdite internetovu skrinku - router Cisco:\n1. Hľadajte malú hranatú sivú alebo čiernu skrinku.\n2. Na skrinke musí byť viditeľný nápis CISCO.\n3. Na prednom paneli má rad malých svetielok (kontroliek), ktoré normálne svietia alebo blikajú na zeleno.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Skrinka je zvyčajne v serverovej skrini, na poličke alebo skrytá za pultom. Ak ju neviete nájsť, spýtajte sa kolegu."
+      },
+      "next_to": "s4"
+    },
+    {
+      "id": "s4",
+      "type": "yesno",
+      "question": "Svietia alebo blikajú na Cisco skrinke nejaké kontrolky?",
+      "instruction": "Pozrite sa na predný panel Cisco skrinky. Mal by tam byť rad malých svetielok — stačí ak svieti aspoň jedno.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Ak nesvieti vôbec nič: skontrolujte, či je skrinka zapojená do elektrickej zásuvky. Ak je zapojená a stále nesvieti — zavolajte podporu."
+      },
+      "yes_to": "s5",
+      "no_to": "fail"
+    },
+    {
+      "id": "s5",
+      "type": "next",
+      "question": null,
+      "instruction": "Vypnite Cisco skrinku:\n1. Otočte skrinku zadnou stranou k sebe (tam, kde idú káble).\n2. Nájdite malé tlačidlo Power a stlačte ho.\n3. Ak tlačidlo nenájdete — vytiahnite čierny napájací kábel zo zásuvky.\n4. Počkajte, kým všetky svetielka úplne zhasnú.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Vypínajte LEN Cisco skrinku. Počítač, pokladňu ani tlačiareň nevypínajte."
+      },
+      "next_to": "s6"
+    },
+    {
+      "id": "s6",
+      "type": "next",
+      "question": null,
+      "instruction": "Povinná prestávka — DÔLEŽITÉ, dodržte časy:\n1. Nastavte si stopky na 6 minút (napr. na mobile).\n2. Nechajte skrinku vypnutú celých 6 minút — SKÔR JU NEZAPÍNAJTE.\n3. Po 6 minútach skrinku zapnite — tlačidlom Power alebo zasunutím kábla späť do zásuvky.\n4. Nastavte stopky na ďalších 5 minút a počkajte, kým sa skrinka rozbehne a rozsvietia sa kontrolky.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Skrátenie čakacej doby nefunguje — ak zapnete skôr, sieť sa nemusí správne obnoviť a budete musieť začať znova od vypnutia."
+      },
+      "next_to": "s7"
+    },
+    {
+      "id": "s7",
+      "type": "yesno",
+      "question": "Funguje teraz internet alebo kasa?",
+      "instruction": "Skúste na počítači otvoriť stránku www.fann.sk alebo skontrolujte stav kasy v programe Filip.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Niekedy trvá ešte minútu-dve, kým sa kasa po reštarte routera sama pripojí. Chvíľu počkajte a skúste znova."
+      },
+      "yes_to": "ok",
+      "no_to": "fail"
+    }
+  ],
+  "solution_ok": "Výborne! Internet a kasa sú opäť online. Môžete pokračovať v práci.",
+  "solution_fail": "Ak ste dodržali všetky kroky a internet stále nefunguje, zavolajte technickú podporu.",
+  "contact": "IT technik Belano: 0908 928 149"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "cierna-obrazovka",
+  "name": "Čierna obrazovka",
+  "desc": "Keď monitor nič nezobrazuje alebo je čierny",
+  "category": "pc",
+  "priority": "high",
+  "emoji": "🔆",
+  "active": true,
+  "updated": "2026-04-11T10:00:00Z",
+  "steps": [
+    {
+      "id": "s1",
+      "type": "yesno",
+      "question": "Svieti na monitore malé svetielko (vpredu dole)?",
+      "instruction": "Pozrite sa na veľkú obrazovku. Vpredu dole by malo svietiť malé svetielko — zelené (zapnutý) alebo oranžové (spí).",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Monitor = ten veľký plochý displej. Počítač = tá šedá alebo čierna skriňa pod stolom alebo vedľa monitora."
+      },
+      "yes_to": "s3",
+      "no_to": "s2"
+    },
+    {
+      "id": "s2",
+      "type": "next",
+      "question": null,
+      "instruction": "Monitor je vypnutý. Zapnite ho:\n1. Nájdite tlačidlo na spodku monitora (vpredu alebo naspodu).\n2. Stlačte ho raz.\n3. Svetielko by sa malo rozsvietiť — zelené alebo oranžové.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Tlačidlo zapnutia monitora je zvyčajne malé okrúhle tlačidlo vpredu dole alebo na boku monitora."
+      },
+      "next_to": "s3"
+    },
+    {
+      "id": "s3",
+      "type": "yesno",
+      "question": "Svieti svetielko oranžovo (nie zeleno)?",
+      "instruction": "Ak svieti oranžovo — monitor je v úspornom režime (spí). Ak zeleno — monitor je aktívny, ale čierny.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "s4",
+      "no_to": "s5"
+    },
+    {
+      "id": "s4",
+      "type": "next",
+      "question": null,
+      "instruction": "Monitor spí — zobuďte ho:\n1. Pohnite myšou (tá malá vec na stole).\n2. Alebo stlačte akékoľvek tlačidlo na klávesnici.\n3. Počkajte 5 sekúnd — obrazovka by sa mala rozsvietiť.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "next_to": "s6"
+    },
+    {
+      "id": "s5",
+      "type": "next",
+      "question": null,
+      "instruction": "Skontrolujte kábel monitora:\n1. Vzadu na monitore nájdite kábel (modrý alebo biely konektor).\n2. Skontrolujte, či je pevne zastrčený.\n3. Druhý koniec toho istého kábla nájdite vzadu v počítači (šedá skriňa).\n4. Ak kábel visí voľne — pevne ho zastrčte.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Kábel monitora sa pripája s malými skrutkami po bokoch. Netreba ich útahovať — stačí zastrčiť."
+      },
+      "next_to": "s6"
+    },
+    {
+      "id": "s6",
+      "type": "yesno",
+      "question": "Zobrazuje teraz obrazovka niečo?",
+      "instruction": "Pozrite sa na monitor. Mal by zobraziť pracovnú plochu alebo prihlasovanie.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "fail"
+    }
+  ],
+  "solution_ok": "Výborne, obrazovka funguje! Ak sa to bude opakovať, skúste najprv pohnúť myšou.",
+  "solution_fail": "Toto potrebuje technickú pomoc. Zavolajte IT, prídeme sa pozrieť.",
+  "contact": "kl. 123"
+}

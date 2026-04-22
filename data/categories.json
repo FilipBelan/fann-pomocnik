@@ -1,0 +1,34 @@
+[
+  {
+    "id": "kas",
+    "name": "Pokladňa nejde",
+    "desc": "Keď nefunguje kasa, tlačiareň alebo platba",
+    "icon": "receipt",
+    "color": "#BA7517",
+    "order": 1
+  },
+  {
+    "id": "pc",
+    "name": "Počítač / obrazovka",
+    "desc": "Keď nejde ten veľký monitor alebo počítač",
+    "icon": "monitor",
+    "color": "#185FA5",
+    "order": 2
+  },
+  {
+    "id": "inet",
+    "name": "Nefunguje internet",
+    "desc": "Keď sa nič nenačítava a nejde objednávať",
+    "icon": "wifi",
+    "color": "#534AB7",
+    "order": 3
+  },
+  {
+    "id": "skener",
+    "name": "Skener / čítačka",
+    "desc": "Keď tá pípacia vec nečíta čiarové kódy",
+    "icon": "scan",
+    "color": "#0F6E56",
+    "order": 4
+  }
+]

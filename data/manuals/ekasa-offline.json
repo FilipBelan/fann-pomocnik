@@ -1,0 +1,80 @@
+{
+  "id": "ekasa-offline",
+  "name": "eKasa offline / chyba",
+  "desc": "Keď kasa hlási chybu spojenia alebo eKasa offline",
+  "category": "kas",
+  "priority": "high",
+  "emoji": "⚠️",
+  "active": true,
+  "updated": "2026-04-11T10:00:00Z",
+  "steps": [
+    {
+      "id": "s1",
+      "type": "yesno",
+      "question": "Vidíte na obrazovke správu o eKasa alebo chybe spojenia?",
+      "instruction": "Pozrite sa na obrazovku pokladne. Ak tam bliká nejaká červená správa alebo nápis \"offline\" alebo \"chyba spojenia\" — kliknite ÁNO.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "eKasa je systém, cez ktorý kasa posiela dáta o nákupoch na finančnú správu. Keď internet nefunguje, kasa chodí v záložnom režime."
+      },
+      "yes_to": "s2",
+      "no_to": "fail"
+    },
+    {
+      "id": "s2",
+      "type": "yesno",
+      "question": "Funguje internet? Skúste otvoriť nejakú stránku na inom zariadení.",
+      "instruction": "Vezmite mobil alebo tablet a skúste otvoriť akúkoľvek stránku (napr. google.sk). Ak sa otvorí — internet funguje.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Kasa potrebuje internet aby mohla odosielať doklady na finančnú správu. Bez internetu chodí v zálohe — môžete predávať, ale doklady sa pošlú neskôr."
+      },
+      "yes_to": "s4",
+      "no_to": "s3"
+    },
+    {
+      "id": "s3",
+      "type": "next",
+      "question": null,
+      "instruction": "Internet nefunguje. Reštartujte router:\n1. Nájdite bielu alebo čiernu krabičku na stene alebo poličke — to je router.\n2. Vzadu vyťahnite napájací kábel (ten hrubší čierny).\n3. Počkajte 30 sekúnd.\n4. Zastrčte kábel späť.\n5. Počkajte 2 minúty kým sa router naštartuje (blikajú svetielka).\n6. Skúste znova internet na mobile.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Počas reštartu routera môžete pokračovať v predaji — kasa beží v záložnom režime."
+      },
+      "next_to": "s4"
+    },
+    {
+      "id": "s4",
+      "type": "next",
+      "question": null,
+      "instruction": "Reštartujte kasu:\n1. Na pokladni nájdite červené tlačidlo ZAVRIEŤ DEŇ — to NESTLÁČAJTE.\n2. Nájdite vypínač počítača (šedá alebo čierna skriňa pod stolom).\n3. Stlačte ho raz — počítač sa vypne.\n4. Počkajte 10 sekúnd.\n5. Znova stlačte vypínač — počítač sa zapne.\n6. Počkajte kým sa úplne načíta kasa (asi 2 minúty).",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Nestláčajte tlačidlo ZAVRIEŤ DEŇ ani UZÁVIERKA — to by zatvorilo celú zmenu!"
+      },
+      "next_to": "s5"
+    },
+    {
+      "id": "s5",
+      "type": "yesno",
+      "question": "Zmizla chyba eKasa po reštarte?",
+      "instruction": "Pozrite sa na obrazovku pokladne po jej zapnutí. Ak tam nie je červená správa o eKasa — všetko je v poriadku.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "fail"
+    }
+  ],
+  "solution_ok": "Skvelé, eKasa je opäť online! Kasa automaticky odošle všetky záložné doklady.",
+  "solution_fail": "Toto potrebuje technickú pomoc. Môžete pokračovať v predaji — kasa beží v záložnom režime. Zavolajte IT.",
+  "contact": "kl. 123"
+}

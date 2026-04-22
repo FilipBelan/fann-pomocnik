@@ -1,0 +1,117 @@
+{
+  "id": "blocek",
+  "name": "Netlačí bloček",
+  "desc": "Keď pokladňa nevytlačí papierik po nákupe",
+  "category": "kas",
+  "priority": "high",
+  "emoji": "🖨",
+  "active": false,
+  "updated": "2026-04-21T10:51:10.313Z",
+  "steps": [
+    {
+      "id": "s1",
+      "type": "yesno",
+      "question": "Svieti na tlačiarni zelené svetielko?",
+      "instruction": "Pozrite sa na malú bielu krabičku vedľa pokladne. Vpredu alebo hore by malo svietiť malé zelené svetielko.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Tá malá biela krabička sa volá tlačiareň bločkov. Stojí vedľa pokladne a má na vrchu viečko na papier."
+      },
+      "yes_to": "s3",
+      "no_to": "s2"
+    },
+    {
+      "id": "s2",
+      "type": "next",
+      "question": null,
+      "instruction": "Tlačiareň je vypnutá. Zapnite ju takto:\n1. Vzadu na tlačiarni nájdite malý prepínač.\n2. Vyzerá ako kolíska s písmenom I a O.\n3. Ak je na O — prepnite ho na I (to znamená zapnuté).\n4. Počkajte kým začne blikať zelené svetielko (asi 10 sekúnd).",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Nezapájajte ani nevyťahujte žiadne káble! Stačí len prepnúť ten prepínač."
+      },
+      "next_to": "s3"
+    },
+    {
+      "id": "s3",
+      "type": "yesno",
+      "question": "Je v tlačiarni papier?",
+      "instruction": "Otvorte viečko tlačiarne — zdvihnite ho nahor. Pozrite sa či je vo vnútri rola papiera.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Viečko tlačiarne sa otvára stlačením malého tlačidla na vrchu alebo ťahaním nahor."
+      },
+      "yes_to": "s5",
+      "no_to": "s4"
+    },
+    {
+      "id": "s4",
+      "type": "next",
+      "question": null,
+      "instruction": "Papier chýba. Vložte novú rolu:\n1. Vezmite novú rolu papiera (je v sklade).\n2. Vytiahnite kúsok papiera z roly.\n3. Vložte rolu do tlačiarne — papier musí ísť zospodu roly.\n4. Preložte kúsok papiera cez okraj a zatvorte viečko.\n5. Tlačiareň sama odreže prebytok.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Papier musí ísť ZOSPODU roly, nie zo vrchu. Inak bude tlač prázdna."
+      },
+      "next_to": "s5"
+    },
+    {
+      "id": "s5",
+      "type": "yesno",
+      "question": "Je kábel od tlačiarne riadne zastrčený do počítača?",
+      "instruction": "Pozrite sa vzadu na tlačiareň. Mal by tam byť zapojený kábel (čierny alebo sivý). Skontrolujte, či je pevne zastrčený na oboch stranách — v tlačiarni aj v počítači.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Kábel bežne ide do malého otvoru vzadu v počítači alebo do čiernej krabičky (USB hub) na stole."
+      },
+      "yes_to": "s7",
+      "no_to": "s6"
+    },
+    {
+      "id": "s6",
+      "type": "next",
+      "question": null,
+      "instruction": "Zastrčte kábel pevne:\n1. Nájdite ten kábel čo visí voľne.\n2. Zastrčte ho pevne do tlačiarne (zaklikne).\n3. Druhý koniec zastrčte pevne do počítača alebo čiernej krabičky.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Netlačte na kábel silou. Ak nejde ľahko — otočte ho na druhú stranu."
+      },
+      "next_to": "s7"
+    },
+    {
+      "id": "s7",
+      "type": "next",
+      "question": null,
+      "instruction": "Reštartujte tlačiareň:\n1. Prepínačom vzadu vypnite tlačiareň (na O).\n2. Počkajte 5 sekúnd.\n3. Zapnite znova (na I).\n4. Počkajte kým sa rozsvieti zelené svetielko.\n5. Skúste vytlačiť bloček — urobte skúšobný nákup v kase.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "next_to": "s8"
+    },
+    {
+      "id": "s8",
+      "type": "yesno",
+      "question": "Tlačí teraz bloček?",
+      "instruction": "Skúste urobiť skúšobný nákup alebo vytlačiť testovaciu stranu z pokladne.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "fail"
+    }
+  ],
+  "solution_ok": "Výborne, tlačiareň funguje! Keby sa to zopakovalo, skúste najprv vždy skontrolovať papier.",
+  "solution_fail": "Nevadí, toto opravíme. Zavolajte na technickú podporu, oni to rýchlo vyriešia.",
+  "contact": "0908928149"
+}

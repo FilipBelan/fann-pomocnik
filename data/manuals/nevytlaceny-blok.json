@@ -1,0 +1,142 @@
+{
+  "id": "nevytlaceny-blok",
+  "name": "Nevytlačený bloček",
+  "desc": "Keď pokladňa nevydá papierový bloček po nákupe",
+  "category": "kas",
+  "priority": "high",
+  "emoji": "🧾",
+  "active": true,
+  "updated": "2026-04-22T08:52:59.392Z",
+  "steps": [
+    {
+      "id": "s1",
+      "type": "next",
+      "question": null,
+      "instruction": "Zatvorte kasový program Filip:\n1. Pozrite sa do pravého horného rohu obrazovky.\n2. Uvidíte červené tlačidlo s krížikom ✕ — kliknite naň.\n3. Ak vyskočí okno s otázkou — potvrďte zatvorenie kliknutím na Áno alebo OK.",
+      "image": "zavretie-kasy_1776768657217.png",
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Najprv zatvorte program a až potom vyťahujte kábel. Inak by sa mohli stratiť údaje z pokladne."
+      },
+      "next_to": "s2"
+    },
+    {
+      "id": "s2",
+      "type": "next",
+      "question": null,
+      "instruction": "Odpojte kábel s fialovou páskou z počítača:\n1. Zohnite sa k počítaču pod pultom.\n2. Nájdite kábel označený fialovou páskou — je zastrčený v malom plochom otvore (USB port).\n3. Pevne ho chyťte pri konektore a vytiahnite von.",
+      "image": "img_0063_1776846613455.PNG",
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "USB port je malý plochý otvor v počítači — zvyčajne ich je viacero vedľa seba na prednej strane počítaču pod pultom."
+      },
+      "next_to": "s3"
+    },
+    {
+      "id": "s3",
+      "type": "next",
+      "question": null,
+      "instruction": "Zastrčte kábel do iného USB portu:\n1. Pozrite sa na počítač — sú tam viaceré rovnaké ploché otvory (USB porty).\n2. Ak je niektorý voľný (nič v ňom nie je) — zastrčte do neho kábel s fialovou páskou.\n3. Ak sú všetky obsadené — vytiahnite akýkoľvek iný kábel vedľa neho, zastrčte namiesto neho fialový a ten druhý dajte do portu, kde bol fialový.",
+      "image": "img_0064_1776846912288.jpg",
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Kábel pri správnom zastrčení zaklikne. Ak nejde — otočte ho na druhú stranu, USB sa dá zastrčiť len jedným smerom."
+      },
+      "next_to": "s4"
+    },
+    {
+      "id": "s4",
+      "type": "next",
+      "question": "",
+      "instruction": "Zapnite kasový program FAnnIsKasa:\n1. Na ploche (na obrazovke) nájdite ikonu FAnnIsKasa.\n2. Dvakrát rýchlo kliknite na ikonu.\n",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "next_to": "s5"
+    },
+    {
+      "id": "s5",
+      "type": "yesno",
+      "question": "Otvoril sa kasový program FAnnIsKasa?",
+      "instruction": "Pozrite sa na obrazovku. Mala by sa zobraziť hlavná obrazovka FAnnIsKasa s tlačidlami a číslami — tak ako zvyčajne.",
+      "image": "easy-pos_chyba__1776847401442.png",
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Ak vidíte iba prázdnu alebo čiernu obrazovku, prípadne chybové hlásenie Easy.POS nebol nájdený na COM porte!!! — program sa neotvoril."
+      },
+      "yes_to": "s6",
+      "no_to": "fail"
+    },
+    {
+      "id": "s6",
+      "type": "yesno",
+      "question": "Je bloček zapísaný v prehľade bločkov?",
+      "instruction": "V programe FAnnIsKasa otvorte prehľad bločkov.\n1. Nájdite ho v menu alebo na hlavnej obrazovke.\n2. Skontrolujte, či tam vidíte bloček z posledného nákupu — so správnou sumou a dnešným časom.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Prehľad bločkov je zoznam všetkých predajov. Hľadajte posledný záznam — mal by mať správnu sumu a dnešný dátum a čas."
+      },
+      "yes_to": "s7",
+      "no_to": "fail"
+    },
+    {
+      "id": "s7",
+      "type": "next",
+      "question": null,
+      "instruction": "Vytlačte priebežnú uzávierku:\n1. V programe FAnnIsKasa nájdite v menu Uzávierka možnosť Priebežná a vytlačte ju.\n2. Na vytlačenom bločku nájdite riadok SUMA CELKOM a zapamätajte si číslo.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "next_to": "s8"
+    },
+    {
+      "id": "s8",
+      "type": "next",
+      "question": null,
+      "instruction": "Otvorte prehľad cez kláves F8:\n1. Na klávesnici nájdite kláves F8 — je v hornom rade, označený F8.\n2. Stlačte ho — otvorí sa prehľad.\n3. Nájdite v ňom sumu CELKOM a porovnajte ju so sumou CELKOM z uzávierky.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Klávesy F1 až F12 sú malé klávesy v jednom rade úplne hore na klávesnici."
+      },
+      "next_to": "s9"
+    },
+    {
+      "id": "s9",
+      "type": "yesno",
+      "question": "Zhoduje sa suma na uzávierke so sumou v prehľade (F8)?",
+      "instruction": "Porovnajte obe čísla — SUMU CELKOM z vytlačenej uzávierky a SUMU CELKOM z prehľadu otvoreného cez F8.\nMusia byť presne rovnaké.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "danger",
+        "text": "Ak sa sumy nezhodujú — nepokračujte a ihneď volajte IT technika."
+      },
+      "yes_to": "ok",
+      "no_to": "fail"
+    },
+    {
+      "id": "s10",
+      "type": "yesno",
+      "question": "Je bloček ktorý vám nevyšiel v prehľade bločkov?",
+      "instruction": "Otvorte prehľady cez kláves F7:\n1. Na klávesnici nájdite kláves F7 — je v hornom rade, označený F7.\n2. Stlačte ho — otvorí sa prehľad.\n3. Vyberte si bločky za dnešný deň, ak sa tam bloček nachádza a suma CELKOM z uzávierky sedí so sumou CELKOM z F8 je to v poriadku.",
+      "image": null,
+      "image_caption": null,
+      "video": null,
+      "video_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "fail"
+    }
+  ],
+  "solution_ok": "Výborne! Všetko sedí, tlačiareň bločkov by mala opäť fungovať normálne. Ak sa problém zopakuje, zavolajte IT technika Belana!",
+  "solution_fail": "Toto je nad rámec bežnej opravy. Zavolajte IT technika Belana!",
+  "contact": "telefón: 0908 928 149"
+}

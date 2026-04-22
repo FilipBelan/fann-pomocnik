@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+node-bin/
+
+# Environment variables — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+
+# Frontend build output
+frontend/dist/
+
+# Uploaded files — stored on server volume, not in git
+uploads/images/*
+uploads/videos/*
+!uploads/images/.gitkeep
+!uploads/videos/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
