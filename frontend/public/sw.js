@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fann-pomocnik-v1';
+const CACHE_NAME = 'fann-pomocnik-v2';
 
 // Súbory na cache pri inštalácii
 const PRECACHE = [
@@ -24,6 +24,11 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+
+  // Admin API — nikdy necachuj, vždy čerstvé
+  if (url.pathname.startsWith('/api/admin/')) {
+    return;
+  }
 
   // Manuály — Network First (vždy čerstvé, fallback na cache)
   if (url.pathname.startsWith('/api/manuals/') || url.pathname.startsWith('/api/categories')) {
