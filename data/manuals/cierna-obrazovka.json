@@ -6,18 +6,42 @@
   "priority": "high",
   "emoji": "🔆",
   "active": true,
-  "updated": "2026-04-11T10:00:00Z",
+  "updated": "2026-04-23T09:00:00Z",
   "steps": [
     {
-      "id": "s1",
+      "id": "s0",
       "type": "yesno",
-      "question": "Svieti na monitore malé svetielko (vpredu dole)?",
-      "instruction": "Pozrite sa na veľkú obrazovku. Vpredu dole by malo svietiť malé svetielko — zelené (zapnutý) alebo oranžové (spí).",
+      "question": "Beží počítač (skriňa pod pultom)?",
+      "instruction": "Pozrite sa na skriňu pod pultom. Svieti na nej svetielko alebo počujete tichý bzukot ventilátora?",
       "image": null,
       "image_caption": null,
       "tip": {
         "type": "info",
-        "text": "Monitor = ten veľký plochý displej. Počítač = tá šedá alebo čierna skriňa pod stolom alebo vedľa monitora."
+        "text": "Počítač = sivá alebo čierna skriňa pod pultom, ktorú ráno zapínate. Monitor = veľký plochý displej na stole."
+      },
+      "yes_to": "s1",
+      "no_to": "s_pc"
+    },
+    {
+      "id": "s_pc",
+      "type": "next",
+      "question": null,
+      "instruction": "Zapnite počítač:\n1. Nájdite skriňu pod pultom.\n2. Nájdite okrúhle tlačidlo zapínania vpredu na skrini.\n3. Stlačte ho raz.\n4. Počkajte 1–2 minúty kým sa Windows spustí.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "next_to": "s1"
+    },
+    {
+      "id": "s1",
+      "type": "yesno",
+      "question": "Svieti na monitore malé svetielko (vpredu dole)?",
+      "instruction": "Pozrite sa na veľkú obrazovku. Vpredu dole by malo svietiť malé svetielko — zelené, biele alebo oranžové.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Monitor = ten veľký plochý displej. Počítač = tá šedá alebo čierna skriňa pod pultom."
       },
       "yes_to": "s3",
       "no_to": "s2"
@@ -26,7 +50,7 @@
       "id": "s2",
       "type": "next",
       "question": null,
-      "instruction": "Monitor je vypnutý. Zapnite ho:\n1. Nájdite tlačidlo na spodku monitora (vpredu alebo naspodu).\n2. Stlačte ho raz.\n3. Svetielko by sa malo rozsvietiť — zelené alebo oranžové.",
+      "instruction": "Monitor je vypnutý. Zapnite ho:\n1. Nájdite tlačidlo na spodku monitora (vpredu alebo naspodu).\n2. Stlačte ho raz.\n3. Svetielko by sa malo rozsvietiť.",
       "image": null,
       "image_caption": null,
       "tip": {
@@ -38,8 +62,8 @@
     {
       "id": "s3",
       "type": "yesno",
-      "question": "Svieti svetielko oranžovo (nie zeleno)?",
-      "instruction": "Ak svieti oranžovo — monitor je v úspornom režime (spí). Ak zeleno — monitor je aktívny, ale čierny.",
+      "question": "Svieti svetielko oranžovo (nie zeleno alebo bielo)?",
+      "instruction": "Ak svieti oranžovo — monitor spí. Ak svieti zeleno alebo bielo — monitor je aktívny, ale obrazovka je čierna.",
       "image": null,
       "image_caption": null,
       "tip": null,
@@ -60,12 +84,12 @@
       "id": "s5",
       "type": "next",
       "question": null,
-      "instruction": "Skontrolujte kábel monitora:\n1. Vzadu na monitore nájdite kábel (modrý alebo biely konektor).\n2. Skontrolujte, či je pevne zastrčený.\n3. Druhý koniec toho istého kábla nájdite vzadu v počítači (šedá skriňa).\n4. Ak kábel visí voľne — pevne ho zastrčte.",
+      "instruction": "Skontrolujte káble vzadu na monitore:\n\n🔵 VGA kábel (obrazový):\n1. Vzadu na monitore nájdite modrý väčší konektor.\n2. Skontrolujte, či je pevne zastrčený.\n3. Druhý koniec nájdite vzadu v skrini pod pultom — zastrčte ho pevne.\n\n⚫ Napájací kábel (prúd):\n1. Vzadu na monitore nájdite čierny kábel (býva označený zelenou páskou).\n2. Skontrolujte, či je pevne zastrčený do monitora aj do zásuvky.",
       "image": null,
       "image_caption": null,
       "tip": {
         "type": "warn",
-        "text": "Kábel monitora sa pripája s malými skrutkami po bokoch. Netreba ich útahovať — stačí zastrčiť."
+        "text": "VGA kábel má malé skrutky po bokoch — netreba ich útahovať, stačí zastrčiť konektor."
       },
       "next_to": "s6"
     },
@@ -73,7 +97,55 @@
       "id": "s6",
       "type": "yesno",
       "question": "Zobrazuje teraz obrazovka niečo?",
-      "instruction": "Pozrite sa na monitor. Mal by zobraziť pracovnú plochu alebo prihlasovanie.",
+      "instruction": "Pozrite sa na monitor. Mal by zobraziť pracovnú plochu alebo prihlasovaciu obrazovku.",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "s7"
+    },
+    {
+      "id": "s7",
+      "type": "next",
+      "question": null,
+      "instruction": "Svetielko monitora svieti zeleno alebo bielo — počítač beží, ale grafické ovládače mohli zamrznúť. Skúste ich resetovať:\n1. Na klávesnici stlačte a DRŽTE naraz všetky štyri klávesy:\n   Windows + Ctrl + Shift + B\n2. Obrazovka môže na chvíľu bliknúť alebo zčerniet — to je normálne.\n3. Počkajte 10–15 sekúnd.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "info",
+        "text": "Kláves Windows = tlačidlo s logom Windows (vlajočka), zvyčajne vľavo dole na klávesnici vedľa Ctrl."
+      },
+      "next_to": "s8"
+    },
+    {
+      "id": "s8",
+      "type": "yesno",
+      "question": "Rozsvietila sa obrazovka?",
+      "instruction": "Počkajte 10–15 sekúnd. Zobrazilo sa prihlásenie alebo pracovná plocha?",
+      "image": null,
+      "image_caption": null,
+      "tip": null,
+      "yes_to": "ok",
+      "no_to": "s9"
+    },
+    {
+      "id": "s9",
+      "type": "next",
+      "question": null,
+      "instruction": "Kombinácia nepomohla. Počítač je treba vypnúť natvrdo:\n1. Nájdite skriňu pod pultom.\n2. Nájdite tlačidlo zapínania vpredu na skrini.\n3. Držte ho stlačené aspoň 10 sekúnd — kým počítač úplne nezhasne.\n4. Počkajte 5 sekúnd.\n5. Stlačte tlačidlo zapínania raz — počítač sa spustí.\n6. Počkajte 2 minúty kým sa Windows načíta.",
+      "image": null,
+      "image_caption": null,
+      "tip": {
+        "type": "warn",
+        "text": "Tvrdé vypnutie je výnimočné riešenie — neuložené veci sa nestratia (pokladničný program sa sám obnoví). Používajte iba keď inak nejde."
+      },
+      "next_to": "s10"
+    },
+    {
+      "id": "s10",
+      "type": "yesno",
+      "question": "Spustil sa počítač a obrazovka zobrazuje niečo?",
+      "instruction": "Po reštarte počkajte kým sa Windows plne načíta. Vidíte pracovnú plochu alebo prihlasovaciu obrazovku?",
       "image": null,
       "image_caption": null,
       "tip": null,
@@ -81,7 +153,7 @@
       "no_to": "fail"
     }
   ],
-  "solution_ok": "Výborne, obrazovka funguje! Ak sa to bude opakovať, skúste najprv pohnúť myšou.",
+  "solution_ok": "Výborne, obrazovka funguje! Ak sa to bude opakovať, zavolajte IT aby skontrolovalo grafické ovládače.",
   "solution_fail": "Toto potrebuje technickú pomoc. Zavolajte IT, prídeme sa pozrieť.",
   "contact": "kl. 123"
 }
