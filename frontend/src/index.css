@@ -449,6 +449,8 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: auto;
   display: block;
+  max-height: 340px;
+  object-fit: contain;
 }
 
 .image-placeholder {
