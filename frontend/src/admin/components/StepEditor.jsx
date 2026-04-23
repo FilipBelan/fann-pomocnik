@@ -8,7 +8,7 @@ const TIP_TYPES = [
   { value: 'danger', label: '⚠ Nebezpečenstvo' },
 ];
 
-export default function StepEditor({ step, index, total, allStepIds, onChange, onMoveUp, onMoveDown, onDelete, onFocus, isFocused }) {
+export default function StepEditor({ step, index, total, allStepIds, allSteps, onChange, onMoveUp, onMoveDown, onDelete, onFocus, isFocused }) {
   const [open, setOpen] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
@@ -41,7 +41,15 @@ export default function StepEditor({ step, index, total, allStepIds, onChange, o
   }
 
   const nextTargets = [
-    ...allStepIds.filter(id => id !== step.id).map(id => ({ value: id, label: `Krok: ${id}` })),
+    ...allStepIds.filter(id => id !== step.id).map(id => {
+      const pos = allSteps ? allSteps.findIndex(s => s.id === id) : -1;
+      const s = allSteps ? allSteps[pos] : null;
+      const preview = s ? (s.question || s.instruction || '').slice(0, 40) : '';
+      const label = pos >= 0
+        ? `Krok ${pos + 1}${preview ? ' — ' + preview : ''}`
+        : id;
+      return { value: id, label };
+    }),
     { value: 'ok', label: '✓ Vyriešené (ok)' },
     { value: 'fail', label: '✕ Zavolajte IT (fail)' },
   ];

@@ -121,6 +121,7 @@ export default function ManualEditor() {
 
   const previewStep = manual.steps[focusedStep] || manual.steps[0];
   const allStepIds = manual.steps.map(s => s.id);
+  const allSteps = manual.steps;
 
   if (loading) {
     return (
@@ -288,6 +289,7 @@ export default function ManualEditor() {
                 index={i}
                 total={manual.steps.length}
                 allStepIds={allStepIds}
+                allSteps={allSteps}
                 isFocused={focusedStep === i}
                 onFocus={() => setFocusedStep(i)}
                 onChange={s => setStep(i, s)}
